@@ -1,0 +1,115 @@
+<!DOCTYPE html>
+<html lang="es">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Clase 5 — Demo de eventos</title>
+    <style>
+        :root{
+            --bg:#0f1720;
+            --card:#0b1220;
+            --muted:#9aa4b2;
+            --accent:#06b6d4;
+            --glass: rgba(255,255,255,0.03);
+        }
+        *{box-sizing:border-box}
+        body{
+            margin:0;
+            font-family: Inter, system-ui, -apple-system, "Segoe UI", Roboto, "Helvetica Neue", Arial;
+            background: linear-gradient(180deg, #071026 0%, #071829 100%);
+            color: #e6eef6;
+            -webkit-font-smoothing:antialiased;
+            -moz-osx-font-smoothing:grayscale;
+        }
+        .container{max-width:1100px;margin:40px auto;padding:24px}
+        header{display:flex;align-items:center;justify-content:space-between;gap:16px}
+        h1{font-size:20px;margin:0}
+        p.lead{color:var(--muted);margin:6px 0 0;font-size:14px}
+        .grid{display:grid;grid-template-columns:repeat(auto-fit,minmax(220px,1fr));gap:18px;margin-top:24px}
+        .card{background:linear-gradient(180deg, rgba(255,255,255,0.03), rgba(255,255,255,0.02));border-radius:12px;padding:18px;border:1px solid rgba(255,255,255,0.04);box-shadow:0 6px 18px rgba(2,6,23,0.6);transition:transform .18s ease, box-shadow .18s ease}
+        .card:hover{transform:translateY(-6px);box-shadow:0 12px 36px rgba(2,6,23,0.7)}
+        .card h3{margin:0 0 8px;font-size:16px}
+        .card p{margin:0 0 12px;color:var(--muted);font-size:13px}
+        .actions{display:flex;gap:8px;flex-wrap:wrap}
+        .btn{display:inline-flex;align-items:center;gap:8px;padding:8px 12px;border-radius:8px;text-decoration:none;color:inherit;border:1px solid transparent;background:var(--glass);font-weight:600;font-size:13px}
+        .btn.primary{background:linear-gradient(90deg,var(--accent),#7dd3fc);color:#021223;border-color:rgba(255,255,255,0.06)}
+        .btn.ghost{background:transparent;border:1px solid rgba(255,255,255,0.04)}
+        footer{margin-top:28px;color:var(--muted);font-size:13px}
+        .tag{display:inline-block;padding:6px 10px;border-radius:999px;background:rgba(255,255,255,0.02);border:1px solid rgba(255,255,255,0.03);font-size:12px;margin-left:8px}
+        @media (max-width:520px){.container{padding:16px;margin:18px auto}header{flex-direction:column;align-items:flex-start;gap:6px}}    
+    </style>
+</head>
+<body>
+    <div class="container">
+        <header>
+            <div>
+                <h1>Clase 5 — Demo de eventos</h1>
+                <p class="lead">Proyectos y ejemplos: listener, onchange, onclick, oncopy, onplay y zoom.</p>
+            </div>
+            <div>
+                <span class="tag">Archivos locales</span>
+            </div>
+        </header>
+
+        <section class="grid" aria-label="Lista de demos">
+            <article class="card">
+                <h3>listener.html</h3>
+                <p>Ejemplo de uso de addEventListener y manejo de eventos.</p>
+                <div class="actions">
+                    <a class="btn primary" href="listener.html" target="_blank" rel="noopener">Abrir</a>
+                    <a class="btn ghost" href="listener.html">Abrir en misma pestaña</a>
+                </div>
+            </article>
+
+            <article class="card">
+                <h3>onchange.html</h3>
+                <p>Ejemplo con el evento onchange.</p>
+                <div class="actions">
+                    <a class="btn primary" href="onchange.html" target="_blank" rel="noopener">Abrir</a>
+                    <a class="btn ghost" href="onchange.html">Abrir en misma pestaña</a>
+                </div>
+            </article>
+
+            <article class="card">
+                <h3>onclick.html</h3>
+                <p>Ejemplo demostrando onclick directo en elementos.</p>
+                <div class="actions">
+                    <a class="btn primary" href="onclick.html" target="_blank" rel="noopener">Abrir</a>
+                    <a class="btn ghost" href="onclick.html">Abrir en misma pestaña</a>
+                </div>
+            </article>
+
+            <article class="card">
+                <h3>oncopy.html + oncopy.css + oncopy.js</h3>
+                <p>Ejemplo que incluye CSS y JS separados para oncopy.</p>
+                <div class="actions">
+                    <a class="btn primary" href="oncopy.html" target="_blank" rel="noopener">Abrir</a>
+                    <a class="btn ghost" href="oncopy.html">Abrir en misma pestaña</a>
+                </div>
+            </article>
+
+            <article class="card">
+                <h3>onplay.html</h3>
+                <p>Ejemplo con el evento onplay para medios de audio/video.</p>
+                <div class="actions">
+                    <a class="btn primary" href="onplay.html" target="_blank" rel="noopener">Abrir</a>
+                    <a class="btn ghost" href="onplay.html">Abrir en misma pestaña</a>
+                </div>
+            </article>
+
+            <article class="card">
+                <h3>zoom.html</h3>
+                <p>Producto con zoom en la imagen y selector de tallas.</p>
+                <div class="actions">
+                    <a class="btn primary" href="zoom.html" target="_blank" rel="noopener">Abrir</a>
+                    <a class="btn ghost" href="zoom.html">Abrir en misma pestaña</a>
+                </div>
+            </article>
+        </section>
+
+        <footer>
+            Abre los ejemplos haciendo clic en "Abrir" (se abrirá en una pestaña nueva). Si usas VS Code, puedes usar "Live Server" para probar sin restricciones de CORS.
+        </footer>
+    </div>
+</body>
+</html>
