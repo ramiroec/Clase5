@@ -1,0 +1,150 @@
+<!DOCTYPE html>
+<html lang="es">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Eventos de JavaScript</title>
+    <style>
+        body {
+            font-family: 'Arial', sans-serif;
+            background: linear-gradient(135deg, #6a11cb, #2575fc);
+            display: flex;
+            justify-content: center;
+            align-items: center;
+            min-height: 100vh;
+            margin: 0;
+            color: #fff;
+            text-align: center;
+            padding: 20px;
+        }
+
+        .container {
+            background: rgba(255, 255, 255, 0.1);
+            padding: 40px;
+            border-radius: 15px;
+            box-shadow: 0 10px 30px rgba(0, 0, 0, 0.2);
+            backdrop-filter: blur(10px);
+            max-width: 800px;
+            width: 100%;
+        }
+
+        h1 {
+            font-size: 2.5em;
+            margin-bottom: 20px;
+        }
+
+        h2 {
+            font-size: 1.8em;
+            margin-bottom: 20px;
+        }
+
+        p {
+            font-size: 1.2em;
+            margin-bottom: 20px;
+        }
+
+        select, input, .scroll-box {
+            width: 100%;
+            padding: 10px;
+            margin: 10px 0;
+            border-radius: 5px;
+            border: 1px solid #ccc;
+            background: rgba(255, 255, 255, 0.2);
+            color: #fff;
+            font-size: 1em;
+        }
+
+        .scroll-box {
+            height: 150px;
+            overflow-y: scroll;
+            text-align: left;
+            padding: 15px;
+            background: rgba(255, 255, 255, 0.1);
+            border-radius: 10px;
+        }
+
+        .highlight {
+            color: #ff6f61;
+            font-weight: bold;
+        }
+
+        .output {
+            margin-top: 20px;
+            padding: 20px;
+            background: rgba(255, 255, 255, 0.2);
+            border-radius: 10px;
+            color: #fff;
+            font-size: 1.1em;
+        }
+
+        .button {
+            background-color: #ff6f61;
+            color: white;
+            padding: 15px 30px;
+            border: none;
+            border-radius: 25px;
+            font-size: 1.2em;
+            cursor: pointer;
+            transition: background-color 0.3s ease, transform 0.3s ease;
+            margin: 10px;
+        }
+
+        .button:hover {
+            background-color: #ff3b2f;
+            transform: scale(1.1);
+        }
+    </style>
+</head>
+<body>
+    <div class="container">
+        <h1>Eventos de JavaScript</h1>
+
+        <!-- Ejemplo 1: Selección de un coche -->
+        <h2>Evento <code>onchange</code></h2>
+        <p>Selecciona un coche de la lista:</p>
+        <select id="mySelect" onchange="mostrarCoche()">
+            <option value="Audi">Audi</option>
+            <option value="BMW">BMW</option>
+            <option value="Mercedes">Mercedes</option>
+            <option value="Volvo">Volvo</option>
+        </select>
+        <p id="cocheSeleccionado" class="output"></p>
+
+        <!-- Ejemplo 2: Evento de scroll -->
+        <h2>Evento <code>onscroll</code></h2>
+        <p>Prueba la barra de desplazamiento en el cuadro de texto:</p>
+        <div class="scroll-box" onscroll="contarScroll()">
+            En mis años más jóvenes, mi padre me dio un consejo que he estado rumiando desde entonces.
+            <br><br><br>
+            "Cada vez que sientas ganas de criticar a alguien", me dijo, "recuerda que no todas las personas en este mundo han tenido las ventajas que tú has tenido".
+            <br><br><br>
+            "Fue un gran consejo!"
+        </div>
+        <p>Has desplazado <span id="contadorScroll">0</span> veces.</p>
+
+        <!-- Ejemplo 3: Evento de teclado -->
+        <h2>Evento <code>onkeypress</code></h2>
+        <p>Se activa una función cuando el usuario presiona una tecla en el campo de texto:</p>
+        <input type="text" onkeypress="mostrarAlerta()" placeholder="Escribe algo...">
+    </div>
+
+    <script>
+        // Ejemplo 1: Mostrar el coche seleccionado
+        function mostrarCoche() {
+            const coche = document.getElementById("mySelect").value;
+            document.getElementById("cocheSeleccionado").innerHTML = `Has seleccionado: <span class="highlight">${coche}</span>`;
+        }
+
+        // Ejemplo 2: Contar el número de desplazamientos
+        let contador = 0;
+        function contarScroll() {
+            document.getElementById("contadorScroll").textContent = contador += 1;
+        }
+
+        // Ejemplo 3: Mostrar una alerta al presionar una tecla
+        function mostrarAlerta() {
+            alert("¡Has presionado una tecla!");
+        }
+    </script>
+</body>
+</html>

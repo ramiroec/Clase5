@@ -1,0 +1,36 @@
+<!DOCTYPE html>
+<html lang="es">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Eventos del DOM</title>
+    <link rel="stylesheet" href="oncopy.css">
+</head>
+<body>
+    <div class="container">
+        <h1>Eventos del DOM</h1>
+
+        <!-- Ejemplo 1: Evento oncopy -->
+        <h2>Evento <code>oncopy</code></h2>
+        <p>Intenta copiar el texto en el campo de entrada:</p>
+        <input type="text" oncopy="mostrarMensajeCopia()" value="Intenta copiar este texto">
+        <p id="mensajeCopia" class="output"></p>
+
+        <!-- Ejemplo 2: Evento oncut -->
+        <h2>Evento <code>oncut</code></h2>
+        <p>Intenta cortar el texto en el campo de entrada:</p>
+        <input type="text" oncut="mostrarMensajeCorte()" value="Intenta cortar este texto">
+        <p id="mensajeCorte" class="output"></p>
+
+        <!-- Ejemplo 3: Evento onmouseover y onmouseout -->
+        <h2>Eventos <code>onmouseover</code> y <code>onmouseout</code></h2>
+        <p>Pasa el mouse sobre la imagen para agrandarla y retíralo para volver a su tamaño normal:</p>
+        <div class="image-container">
+            <img onmouseover="agrandarImagen(this)" onmouseout="reducirImagen(this)" src="https://www.w3schools.com/jsref/smiley.gif" alt="Smiley" width="32" height="32">
+        </div>
+    </div>
+
+    <script src="oncopy.js">
+    </script>
+</body>
+</html>

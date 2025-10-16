@@ -1,0 +1,120 @@
+<!DOCTYPE html>
+<html lang="es">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Eventos de JavaScript</title>
+    <style>
+        body {
+            font-family: 'Arial', sans-serif;
+            background: linear-gradient(135deg, #6a11cb, #2575fc);
+            display: flex;
+            justify-content: center;
+            align-items: center;
+            height: 100vh;
+            margin: 0;
+            color: #fff;
+            text-align: center;
+        }
+
+        .container {
+            background: rgba(255, 255, 255, 0.1);
+            padding: 40px;
+            border-radius: 15px;
+            box-shadow: 0 10px 30px rgba(0, 0, 0, 0.2);
+            backdrop-filter: blur(10px);
+            max-width: 600px;
+            width: 100%;
+        }
+
+        h1 {
+            font-size: 2.5em;
+            margin-bottom: 20px;
+        }
+
+        h2 {
+            font-size: 1.8em;
+            margin-bottom: 20px;
+        }
+
+        p {
+            font-size: 1.2em;
+            margin-bottom: 20px;
+        }
+
+        .button {
+            background-color: #ff6f61;
+            color: white;
+            padding: 15px 30px;
+            border: none;
+            border-radius: 25px;
+            font-size: 1.2em;
+            cursor: pointer;
+            transition: background-color 0.3s ease, transform 0.3s ease;
+            margin: 10px;
+        }
+
+        .button:hover {
+            background-color: #ff3b2f;
+            transform: scale(1.1);
+        }
+
+        .output {
+            margin-top: 20px;
+            padding: 20px;
+            background: rgba(255, 255, 255, 0.2);
+            border-radius: 10px;
+            color: #fff;
+            font-size: 1.1em;
+        }
+
+        .highlight {
+            color: #ff6f61;
+            font-weight: bold;
+        }
+    </style>
+</head>
+<body>
+    <div class="container">
+        <h1>Eventos de JavaScript</h1>
+        <h2>El Atributo <code>onclick</code></h2>
+
+        <!-- Ejemplo 1: Cambiar contenido de un párrafo -->
+        <p>Haz clic en el botón para mostrar la fecha y hora actual:</p>
+        <button class="button" onclick="document.getElementById('demo1').innerHTML=getFechaEspanol()">¿Qué hora es?</button>
+        <p id="demo1" class="output"></p>
+
+        <!-- Ejemplo 2: Cambiar contenido del botón -->
+        <p>Haz clic en el botón para cambiar su texto por la fecha y hora actual:</p>
+        <button class="button" onclick="this.innerHTML=getFechaEspanol()">¿Qué hora es?</button>
+
+        <!-- Ejemplo 3: Usar una función para mostrar la fecha -->
+        <p>Haz clic en el botón para mostrar la fecha y hora actual usando una función:</p>
+        <button class="button" onclick="displayDate()">¿Qué hora es?</button>
+        <p id="demo2" class="output"></p>
+    </div>
+
+    <script>
+        function getFechaEspanol() {
+            const diasSemana = ['domingo', 'lunes', 'martes', 'miércoles', 'jueves', 'viernes', 'sábado'];
+            const meses = ['enero', 'febrero', 'marzo', 'abril', 'mayo', 'junio', 'julio', 'agosto', 'septiembre', 'octubre', 'noviembre', 'diciembre'];
+            
+            const fecha = new Date();
+            const diaSemana = diasSemana[fecha.getDay()];
+            const dia = fecha.getDate();
+            const mes = meses[fecha.getMonth()];
+            const año = fecha.getFullYear();
+            const hora = fecha.getHours().toString().padStart(2, '0');
+            const minutos = fecha.getMinutes().toString().padStart(2, '0');
+            const segundos = fecha.getSeconds().toString().padStart(2, '0');
+
+            return `${diaSemana}, ${dia} de ${mes} de ${año}, ${hora}:${minutos}:${segundos}`;
+        }
+
+        // Función para mostrar la fecha
+        function displayDate() {
+            document.getElementById("demo2").innerHTML = getFechaEspanol();
+        }
+    </script>
+</body>
+</html>
